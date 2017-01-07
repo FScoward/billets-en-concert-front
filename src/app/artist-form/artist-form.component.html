@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Artist Form</h1>
+  <form #artistForm="ngForm" (ngSubmit)="onSubmit(artistForm)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <!--<md-input type="text" class="form-control" ng-control="name" id="name" name="name" required ngModel #name="ngModel" (keyup)="filter(name.value)"></md-input>-->
+      <md-input type="text" class="form-control" ng-control="name" id="name" name="name" required ngModel #name="ngModel" [(ngModel)]="query" (keyup)="filter(name.value)"></md-input>
+
+      <md-list class="suggestions" *ngIf="filteredList.length > 0">
+        <md-list-item *ngFor="let item of filteredList">
+          <h3 (click)="select(item)">{{item.name}}</h3>
+        </md-list-item>
+      </md-list>
+
+    </div>
+
+    <button md-raised-button color="primary" type="submit" class="btn btn-default">Submit</button>
+  </form>
+ 
+
+</div>

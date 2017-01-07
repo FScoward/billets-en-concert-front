@@ -1,0 +1,6 @@
+<p>
+  sign-in-with-twitter works!
+</p>
+
+<div> {{ (af.auth | async)?.uid }} </div>
+<button (click)="login()" md-raised-button color="primary">Login With Twitter</button>
